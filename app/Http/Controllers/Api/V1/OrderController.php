@@ -1,5 +1,7 @@
 <?php
 
+// このコントローラーは、アプリケーションのバージョン1（V1）のAPIリクエストを処理する責任があります。
+// It handles orders such as placing an order and fetching order lists.
 namespace App\Http\Controllers\Api\V1;
 
 use App\Http\Controllers\Controller;
@@ -12,6 +14,8 @@ use Illuminate\Support\Facades\Validator;
 
 class OrderController extends Controller
 {
+    // 注文をするエンドポイント
+    // Endpoint to place an order
     public function place_order(Request $request)
     {
         $validator = Validator::make($request->all(), [
@@ -74,7 +78,6 @@ class OrderController extends Controller
             }
         }
 
-
         try {
             $save_order = $order->id;
             $total_price = $product_price;
@@ -107,6 +110,8 @@ class OrderController extends Controller
         ], 403);
     }
 
+    // 注文リストを取得するエンドポイント
+    // Endpoint to get a list of orders
     public function get_order_list(Request $request)
     {
         $orders = Order::withCount('details')->where(['user_id' => $request->user()->id])->get()->map(function ($data) {
