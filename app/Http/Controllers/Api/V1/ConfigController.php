@@ -24,7 +24,7 @@ class ConfigController extends Controller
             return response()->json(['errors' => Helpers::error_processor($validator)], 403);
         }
        
-        $response = Http::get('https://maps.googleapis.com/maps/api/geocode/json?latlng='.$request->lat.','.$request->lng.'&key='."Your key the one you put in your flutter");
+        $response = Http::get('https://maps.googleapis.com/maps/api/geocode/json?latlng='.$request->lat.','.$request->lng.'&key='."AIzaSyAZYBVB9cRitA0O6SE-YIncpCKYZq1oV7Y");
         return $response->json();
     }
         public function get_zone(Request $request)
