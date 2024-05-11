@@ -223,7 +223,7 @@ return [
          * or specific method to path like: get:admin/auth/logs.
          */
         'except' => [
-            env('ADMIN_ROUTE_PREFIX', 'admin').'/auth/logs*',
+            env('ADMIN_ROUTE_PREFIX', 'admin') . '/auth/logs*',
         ],
     ],
 
@@ -348,9 +348,7 @@ return [
     'minify_assets' => [
 
         // Assets will not be minified.
-        'excepts' => [
-
-        ],
+        'excepts' => [],
 
     ],
 
@@ -405,15 +403,15 @@ return [
     |
     */
     'extensions' => [
-         'ueditor' => [
-                    // It should be true
-                    'enable' => true,
-        
-                    // Go there for more info：http://fex.baidu.com/ueditor/#start-config
-                    'config' => [
-                        'initialFrameHeight' => 400, // the height
-                    ],
-                    // 'field_type' => 'Custom names'
-                ]
+        'ueditor' => [
+            // It should be true
+            'enable' => true,
+
+            // Go there for more info：http://fex.baidu.com/ueditor/#start-config
+            'config' => [
+                'initialFrameHeight' => 400, // the height
+            ],
+            // 'field_type' => 'Custom names'
+        ]
     ],
 ];

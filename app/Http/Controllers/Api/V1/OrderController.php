@@ -22,7 +22,7 @@ class OrderController extends Controller
             'order_amount' => 'required',
             'address' => 'required_if:order_type,delivery',
             //'longitude' => 'required_if:order_type,delivery',
-            // 'latitude' => 'required_if:order_type,delivery',
+            //'latitude' => 'required_if:order_type,delivery',
         ]);
 
         if ($validator->fails()) {

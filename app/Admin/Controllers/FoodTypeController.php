@@ -13,11 +13,23 @@ use Encore\Admin\Tree;
 class FoodTypeController extends AdminController
 {
     /**
-     * Title for current resource.
+     * Food Type Controller
+     * 食品タイプコントローラー
+     * 
+     * Handles CRUD operations for managing food types.
+     * 食品タイプの管理のための CRUD 操作を処理します。
      *
      * @var string
      */
     protected $title = 'Food Type';
+
+    /**
+     * Display a listing of the resource.
+     * リソースの一覧を表示する。
+     *
+     * @param  \Encore\Admin\Layout\Content  $content
+     * @return \Encore\Admin\Layout\Content
+     */
     public function index(Content $content)
     {
         $tree = new Tree(new FoodType);
@@ -26,8 +38,10 @@ class FoodTypeController extends AdminController
             ->header('Food Type')
             ->body($tree);
     }
+
     /**
      * Make a show builder.
+     * ショービルダーを作成する。
      *
      * @param mixed $id
      * @return Show
@@ -42,11 +56,13 @@ class FoodTypeController extends AdminController
         $show->field('order', __('Order'));
         $show->field('created_at', __('Created_at'));
         $show->field('updated_at', __('Updated_at'));
+
         return $show;
     }
 
     /**
      * Make a form builder.
+     * フォームビルダーを作成する。
      *
      * @return Form
      */
@@ -57,6 +73,7 @@ class FoodTypeController extends AdminController
         $form->text('title', __('Title'));
         $form->textarea('description', __('Description'));
         $form->number('order', __('Order'))->default(1);
+
         return $form;
     }
 }

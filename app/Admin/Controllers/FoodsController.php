@@ -9,14 +9,16 @@ use Encore\Admin\Show;
 use App\Models\Food;
 use App\Models\FoodType;
 
-
 use Encore\Admin\Layout\Content;
-
 
 class FoodsController extends AdminController
 {
     /**
-     * Title for current resource.
+     * Foods Controller
+     * 食品コントローラー
+     * 
+     * Handles CRUD operations for managing food items.
+     * 食品アイテムの管理のための CRUD 操作を処理します。
      *
      * @var string
      */
@@ -24,6 +26,7 @@ class FoodsController extends AdminController
 
     /**
      * Make a grid builder.
+     * グリッドビルダーを作成する。
      *
      * @return Grid
      */
@@ -52,6 +55,7 @@ class FoodsController extends AdminController
 
     /**
      * Make a show builder.
+     * ショービルダーを作成する。
      *
      * @param mixed $id
      * @return Show
@@ -60,13 +64,12 @@ class FoodsController extends AdminController
     {
         $show = new Show(Food::findOrFail($id));
 
-
-
         return $show;
     }
 
     /**
      * Make a form builder.
+     * フォームビルダーを作成する。
      *
      * @return Form
      */
@@ -82,8 +85,6 @@ class FoodsController extends AdminController
         $form->number('selected_people', __('Selected'));
         $form->image('img', __('Thumbnail'))->uniqueName();
         $form->UEditor('description', 'Description');
-
-
 
         return $form;
     }
